@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Q And Ans</title>
+</head>
+<body>
+
+<div>
+    <img class="mx-[29%] w-[45%] pt-8" src="cid.jpeg" id="img1" alt="Sachiv Ji">
+    <p class="ml-[29%] pt-6">1.Which TV show is shown in image?</p>
+    <div class="ml-[30%] pt-2">
+        <input type="radio" name="A" id="opt1"> (A) Chidiya Ghar &nbsp;&nbsp;
+        <input type="radio" name="A" id="opt2"> (B) Laapta Ganj &nbsp;&nbsp;
+        <input type="radio" name="A" id="opt3"> (C) Taarak Mehta Ka Ulta Chasma &nbsp;&nbsp;
+        <input type="radio" name="A" id="opt4"> (D) CID &nbsp;&nbsp;
+    </div>
+    <input type="button" value="Submit" class="h-8 bg-green-600 rounded-2xl px-4 mx-[46%] mt-8 hover:bg-green-700 active:bg-green-600" onclick="btnsubmit()">
+</div>
+
+<script>
+function btnsubmit() {
+
+if(opt4.checked){
+    window.location.assign("p60photo3.html");
+}
+else{
+alert("Wrong Answer")
+}
+
+}
+</script>
+
+</body>
+</html>

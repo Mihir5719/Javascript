@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUFFLE THE CARD</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .cardgame,
+    .cardgame1 {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .cardgame img,
+    .cardgame1 img {
+      width: 150px;
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+
+    .cardgame img:hover,
+    .cardgame1 img:hover {
+      transform: scale(1.05);
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .reset-button {
+      padding: 10px 20px;
+      margin-top: 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .reset-button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form>
+    <div class="cardgame">
+      <img src="j1.jpeg" id="c1" class="reset" />
+      <img src="j2.jpeg" id="c2" class="reset" />
+      <img src="j3.jpeg" id="c3" class="reset" />
+      <img src="j4.jpeg" id="c4" class="reset" />
+      <img src="j5.jpeg" id="c5" class="reset" />
+    </div>
+
+    <div class="cardgame1">
+      <img src="j6.jpeg" id="c6" class="reset" />
+      <img src="j7.jpeg" id="c7" class="reset" />
+      <img src="j8.jpeg" id="c8" class="reset" />
+      <img src="j9.jpeg" id="c9" class="reset" />
+      <img src="j10.jpeg" id="c10" class="reset" />
+    </div>
+    <button type="button" class="reset-button" onclick="shuffleAndDisplayCards()">
+      Click Here 
+    </button>
+  </form>
+  <script>
+    function shuffleAndDisplayCards() {
+      // Array of image sources
+      let images = [
+        'j1.jpeg', 'j2.jpeg', 'j3.jpeg', 'j4.jpeg', 'j5.jpeg',
+        'j6.jpeg', 'j7.jpeg', 'j8.jpeg', 'j9.jpeg', 'j10.jpeg'
+      ];
+
+      // Shuffle the images array
+      images.sort(() => Math.random() +- 0.5);
+
+      // Select all images
+      let cardImages = document.querySelectorAll('.cardgame img, .cardgame1 img');
+
+      // Assign shuffled image sources to each image element
+      cardImages.forEach((img, index) => {
+        img.src = images[index];
+      });
+    }
+
+    // Initial call to display cards when the page loads
+    shuffleAndDisplayCards();
+  </script>
+</body>
+</html>

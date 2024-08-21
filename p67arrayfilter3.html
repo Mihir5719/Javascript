@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Data</title>
+  </head>
+
+  <body>
+    <script>
+      // Employee data array with eid (Employee ID) and direct PF values
+      let employees = [
+        {
+          eid: "E001",
+          name: "Rajesh Kumar",
+          designation: "Software Engineer",
+          age: 25,
+          salary: 45000,
+          pf: 5000,
+        },
+        {
+          eid: "E002",
+          name: "Priya Sharma",
+          designation: "Project Manager",
+          age: 35,
+          salary: 75000,
+          pf: 9000,
+        },
+        {
+          eid: "E003",
+          name: "Anil Singh",
+          designation: "Data Analyst",
+          age: 28,
+          salary: 55000,
+          pf: 6000,
+        },
+        {
+          eid: "E004",
+          name: "Sunita Rao",
+          designation: "UX Designer",
+          age: 30,
+          salary: 60000,
+          pf: 6500,
+        },
+        {
+          eid: "E005",
+          name: "Vikram Patel",
+          designation: "DevOps Engineer",
+          age: 32,
+          salary: 65000,
+          pf: 7000,
+        },
+        {
+          eid: "E006",
+          name: "Kavita Nair",
+          designation: "Quality Assurance",
+          age: 27,
+          salary: 48000,
+          pf: 5500,
+        },
+        {
+          eid: "E007",
+          name: "Rohit Gupta",
+          designation: "System Administrator",
+          age: 29,
+          salary: 52000,
+          pf: 5800,
+        },
+        {
+          eid: "E008",
+          name: "Meera Iyer",
+          designation: "HR Manager",
+          age: 38,
+          salary: 82000,
+          pf: 9800,
+        },
+        {
+          eid: "E009",
+          name: "Amitabh Verma",
+          designation: "CTO",
+          age: 45,
+          salary: 150000,
+          pf: 18000,
+        },
+        {
+          eid: "E010",
+          name: "Neha Saxena",
+          designation: "Marketing Manager",
+          age: 33,
+          salary: 70000,
+          pf: 8400,
+        },
+      ];
+
+      // Display header
+      document.writeln("<h2>Employee Data</h2>");
+
+      // Display employee data with eid, name, designation, age, salary, and PF amount
+      let salaryfind = employees.filter((y) => y.salary >= 80000);
+      document.writeln(JSON.stringify(salaryfind))
+     
+      
+    </script>
+  </body>
+</html>

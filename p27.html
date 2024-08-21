@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    
+</head>
+<style>
+    .container{
+        border: 1px solid rgb(255, 255, 255);
+        height: 200px;
+        width: 300px;
+        text-align: center;
+        background-color:rgb(0, 255, 255);
+        border-radius: 10px;
+        margin-left: 250px;
+        margin-top: 100px;
+        
+    }
+    .container1{
+        margin-top: 20px;
+    }
+
+</style>
+<body>
+    <script>
+
+        function PositiveNegative()
+        {
+            let A=parseInt(document.getElementById("txtno1").value);
+
+            if (A>0){
+                document.getElementById("spanans").innerHTML="Number is Positive"
+            }
+            else{
+                document.getElementById("spanans").innerHTML="Number is Negative"
+            }
+            
+        }
+        
+
+
+    </script>
+       
+    <form class="container ">
+        <input type="text" placeholder="Value of A"  class="container1" id="txtno1">
+        <br>
+     <input type="button" value="Positive Or Negative"  class="container1" id="btnsubmit" onclick="PositiveNegative ();">
+
+     <span id="spanans"></span>
+    </form>
+    
+</body>
+</html>

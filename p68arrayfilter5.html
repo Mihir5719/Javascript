@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Data</title>
+  </head>
+
+  <body>
+    <script>
+      // Employee data array with eid (Employee ID), direct PF values, and gender
+      let employees = [
+        {
+          eid: "1",
+          name: "Rajesh Kumar",
+          designation: "Software Engineer",
+          age: 25,
+          salary: 45000,
+          pf: 5000,
+          gender: "Male",
+        },
+        {
+          eid: "2",
+          name: "Priya Sharma",
+          designation: "Project Manager",
+          age: 35,
+          salary: 75000,
+          pf: 9000,
+          gender: "Female",
+        },
+        {
+          eid: "3",
+          name: "Anil Singh",
+          designation: "Data Analyst",
+          age: 28,
+          salary: 55000,
+          pf: 6000,
+          gender: "Male",
+        },
+        {
+          eid: "4",
+          name: "Sunita Rao",
+          designation: "UX Designer",
+          age: 30,
+          salary: 60000,
+          pf: 6500,
+          gender: "Female",
+        },
+        {
+          eid: "5",
+          name: "Vikram Patel",
+          designation: "DevOps Engineer",
+          age: 32,
+          salary: 65000,
+          pf: 7000,
+          gender: "Male",
+        },
+        {
+          eid: "6",
+          name: "Kavita Nair",
+          designation: "Quality Assurance",
+          age: 27,
+          salary: 48000,
+          pf: 5500,
+          gender: "Female",
+        },
+        {
+          eid: "7",
+          name: "Rohit Gupta",
+          designation: "System Administrator",
+          age: 29,
+          salary: 52000,
+          pf: 5800,
+          gender: "Male",
+        },
+        {
+          eid: "8",
+          name: "Meera Iyer",
+          designation: "HR Manager",
+          age: 38,
+          salary: 82000,
+          pf: 9800,
+          gender: "Female",
+        },
+        {
+          eid: "9",
+          name: "Amitabh Verma",
+          designation: "CTO",
+          age: 45,
+          salary: 150000,
+          pf: 18000,
+          gender: "Male",
+        },
+        {
+          eid: "10",
+          name: "Neha Saxena",
+          designation: "Marketing Manager",
+          age: 33,
+          salary: 70000,
+          pf: 8400,
+          gender: "Female",
+        },
+      ];
+
+        // Display header
+      document.writeln("<h2>Employee Data</h2>");
+
+      // Display employee data with eid, name, designation, age, salary, and PF amount
+      let employeeefind = employees.filter((y) => y.gender== "Male");
+      document.writeln(JSON.stringify(employeeefind))
+    </script>
+  </body>
+</html>

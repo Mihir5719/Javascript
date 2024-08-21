@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photo Question Quiz</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="flex items-center justify-center min-h-screen bg-gray-100 font-roboto">
+    <div class="container bg-white p-6 rounded-lg shadow-lg text-center max-w-md w-full">
+      <div class="cardgame mb-6">
+        <div id="question-text" class="text-xl font-bold text-gray-800 bg-gray-200 p-4 rounded-md mb-4">
+          Which TV show is shown in image?
+        </div>
+        <img id="flag-image" src="cid.jpeg" alt="Question Image" class="w-72 h-auto border-2 border-gray-300 rounded-lg mx-auto" />
+      </div>
+      <div id="options-container" class="space-y-3">
+        <button id="option1" onclick="selectAnswer('option1')" class="w-full py-3 px-6 bg-blue-500 text-white rounded-full transition-transform duration-300 hover:bg-blue-600 hover:scale-105 shadow-lg">
+          Chidiya Ghar
+        </button>
+        <button id="option2" onclick="selectAnswer('option2')" class="w-full py-3 px-6 bg-blue-500 text-white rounded-full transition-transform duration-300 hover:bg-blue-600 hover:scale-105 shadow-lg">
+          Laapta Ganj
+        </button>
+        <button id="option3" onclick="selectAnswer('option3')" class="w-full py-3 px-6 bg-blue-500 text-white rounded-full transition-transform duration-300 hover:bg-blue-600 hover:scale-105 shadow-lg">
+          Taarak Mehta Ka Ulta Chasma
+        </button>
+        <button id="option4" onclick="selectAnswer('option4')" class="w-full py-3 px-6 bg-blue-500 text-white rounded-full transition-transform duration-300 hover:bg-blue-600 hover:scale-105 shadow-lg">
+          CID
+        </button>
+      </div>
+      <button id="submit-button" onclick="submitAnswer()" class="w-full py-3 px-6 mt-6 bg-green-500 text-white rounded-full transition-transform duration-300 hover:bg-green-600 hover:scale-105 shadow-lg">
+        Submit
+      </button>
+      <div id="message-container" class="text-lg text-red-500 mt-4"></div>
+      <div id="success-message" class="text-lg text-green-600 font-bold mt-4"></div>
+    </div>
+    <script>
+      let currentImage = 1;
+      let selectedOption = "";
+
+      function loadNextImage() {
+        let imageElement = document.getElementById("flag-image");
+        let options = document.querySelectorAll("#options-container button");
+        let questionText = document.getElementById("question-text");
+
+        // Clear previous selection
+        options.forEach((option) => option.classList.remove("bg-blue-700"));
+
+        if (currentImage === 1) {
+          imageElement.src = "cid.jpeg";
+          questionText.textContent = "Which TV show is shown in image?";
+          options[0].textContent = "Chidiya Ghar";
+          options[1].textContent = "Laapta Ganj";
+          options[2].textContent = "Taarak Mehta Ka Ulta Chasma";
+          options[3].textContent = "CID";
+        } else if (currentImage === 2) {
+          imageElement.src = "cid1.jpeg";
+          questionText.textContent = "Which character is this from the CID?";
+          options[0].textContent = "Daya";
+          options[1].textContent = "Abhijit";
+          options[2].textContent = "Freddy";
+          options[3].textContent = "ACP Pradyuman";
+        } else if (currentImage === 3) {
+          imageElement.src = "cid2.jpeg";
+          questionText.textContent = "Which character is this from the CID?";
+          options[0].textContent = "Abhijit";
+          options[1].textContent = "Freddy";
+          options[2].textContent = "Daya";
+          options[3].textContent = "ACP Pradyuman";
+        } else if (currentImage === 4) {
+          imageElement.src = "cid3.jpeg";
+          questionText.textContent = "Which character is this from the CID?";
+          options[0].textContent = "Freddy";
+          options[1].textContent = "Daya";
+          options[2].textContent = "ACP Pradyuman";
+          options[3].textContent = "Abhijit";
+        } else if (currentImage === 5) {
+          imageElement.src = "cid4.jpeg";
+          questionText.textContent = "Which character is this from the CID?";
+          options[0].textContent = "ACP Pradyuman";
+          options[1].textContent = "Abhijit";
+          options[2].textContent = "Daya";
+          options[3].textCntent = "Freddy";
+        } else {
+          document.getElementById("message-container").textContent = "";
+          document.getElementById("success-message").textContent =
+            "Successfully you have completed all quiz!";
+          document.getElementById("submit-button").style.display = "none";
+        }
+
+        document.getElementById("message-container").textContent = "";
+        selectedOption = "";
+      }
+
+      function selectAnswer(option) {
+        let options = document.querySelectorAll("#options-container button");
+        options.forEach((opt) => opt.classList.remove("bg-blue-700"));
+        document.getElementById(option).classList.add("bg-blue-700");
+        selectedOption = option;
+      }
+
+      function submitAnswer() {
+        let correctOption = "";
+        if (currentImage === 1) {
+          correctOption = "option4";
+        } else if (currentImage === 2) {
+          correctOption = "option4";
+        } else if (currentImage === 3) {
+          correctOption = "option2";
+        } else if (currentImage === 4) {
+          correctOption = "option4";
+        } else if (currentImage === 5) {
+          correctOption = "option3";
+        }
+
+        if (selectedOption === correctOption) {
+          document.getElementById("message-container").textContent =
+            "Right answer!";
+          currentImage++;
+          loadNextImage();
+        } else {
+          document.getElementById("message-container").textContent =
+            "Wrong answer";
+        }
+      }
+
+      // Initial load
+      loadNextImage();
+    </script>
+  </body>
+</html>

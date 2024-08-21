@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration Form</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f6f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        max-width: 400px;
+        width: 100%;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h2 {
+        color: #333333;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #666666;
+        text-align: left;
+      }
+      input[type="text"],
+      input[type="password"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin: 8px 0 20px 0;
+        border: 1px solid #dcdcdc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+        background-color: #fafafa;
+      }
+      input[type="checkbox"] {
+        margin-right: 8px;
+      }
+      input[type="button"] {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        padding: 12px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      input[type="button"]:hover {
+        background-color: #0056b3;
+      }
+      .error-message {
+        color: #e74c3c;
+        font-size: 14px;
+        margin-top: -15px;
+        margin-bottom: 15px;
+        display: block;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>User Registration</h2>
+      <form>
+        <label for="uname">Username</label>
+        <input type="text" placeholder="Enter Username" id="uname" />
+        <span class="error-message" id="ans1"></span>
+
+        <label for="upass">Password</label>
+        <input type="password" placeholder="Enter Password" id="upass" />
+        <span class="error-message" id="ans2"></span>
+
+        <label for="upassag">Confirm Password</label>
+        <input
+          type="password"
+          placeholder="Enter Password Again"
+          id="upassag"
+        />
+        <span class="error-message" id="ans3"></span>
+
+        <label for="gender">Gender</label>
+        <select id="gender">
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <span class="error-message" id="ans4"></span>
+
+        <div style="text-align: left">
+            <h4>Hobbies</h4>
+          <input type="checkbox" id="hb1" name="vehicle1" value="Bike" />
+          <label for="hb1"> Cricket </label><br />
+          <input type="checkbox" id="hb2" name="vehicle2" value="Car" />
+          <label for="hb2"> Football </label><br />
+          <input type="checkbox" id="hb3" name="vehicle3" value="Boat" />
+          <label for="hb3"> Basketball </label><br />
+        </div>
+        <span class="error-message" id="ans5"></span>
+
+        <textarea placeholder="Enter Address" id="ad1"></textarea>
+        <span class="error-message" id="ans6"></span>
+
+        <input type="button" value="Save" id="save" />
+      </form>
+    </div>
+    <script>
+      let uname = document.querySelector("#uname");
+      let upass = document.querySelector("#upass");
+      let upassag = document.querySelector("#upassag");
+      let gender = document.querySelector("#gender");
+      let save = document.querySelector("#save");
+      let ans1 = document.querySelector("#ans1");
+      let ans2 = document.querySelector("#ans2");
+      let ans3 = document.querySelector("#ans3");
+      let ans4 = document.querySelector("#ans4");
+      let hb1 = document.querySelector("#hb1");
+      let hb2 = document.querySelector("#hb2");
+      let hb3 = document.querySelector("#hb3");
+      let ans5 = document.querySelector("#ans5");
+      let ad1 = document.querySelector("#ad1")
+      let ans6 = document.querySelector("#ans6");
+      let x = 0;
+
+      save.addEventListener("click", () => {
+        let a = uname.value;
+        let b = upass.value;
+        let c = upassag.value;
+        let g = gender.value;
+        let y = ad1.value.length;
+        let cb = x.value;
+        
+
+        if (a === "") {
+          ans1.innerHTML = "Please enter a username.";
+        } else {
+          ans1.innerHTML = "";
+        }
+
+        if (b === "") {
+          ans2.innerHTML = "Please enter a password.";
+        } else {
+          ans2.innerHTML = "";
+        }
+
+        if (c === "") {
+          ans3.innerHTML = "Please confirm your password.";
+        } else if (b !== c) {
+          ans3.innerHTML = "Passwords do not match.";
+        } else {
+          ans3.innerHTML = "";
+        }
+
+        if (g === "") {
+          ans4.innerHTML = "Please select gender.";
+        } else {
+          ans4.innerHTML = "";
+        }
+
+        if (hb1.checked) {
+          cb = 1;
+        }
+
+        if (hb2.checked) {
+          cb = 1;
+        }
+
+        if (hb3.checked) {
+          cb = 1;
+        } else {
+          ans5.innerHTML = "Please Tick at least One Hobby";
+        }
+
+        if (cb === 1) {
+          ans5.innerHTML = "";
+        }
+
+        if (y<10){
+            ans6.innerHTML = "Enter max 10 letters";
+        }
+        else{
+            ans6.innerHTML = ""
+        }
+
+      });
+    </script>
+  </body>
+</html>

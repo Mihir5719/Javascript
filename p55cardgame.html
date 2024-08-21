@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CARD GAME</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      .cardgame,
+      .cardgame1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .cardgame img,
+      .cardgame1 img {
+        width: 120px; /* Adjust width to fit 5 images per row */
+        height: auto; /* Maintain aspect ratio */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .cardgame img:hover,
+      .cardgame1 img:hover {
+        transform: scale(1.05);
+      }
+
+      .reset-button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .reset-button:hover {
+        background-color: #0056b3;
+      }
+
+      .match-button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .match-button:hover {
+        background-color: #0056b3;
+      }
+
+      .undo-button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .undo-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div class="cardgame">
+        <img src="bgcard1.jpeg" id="c1" class="reset" />
+        <img src="bgcard1.jpeg" id="c2" class="reset" />
+        <img src="bgcard1.jpeg" id="c3" class="reset" />
+        <img src="bgcard1.jpeg" id="c4" class="reset" />
+        <img src="bgcard1.jpeg" id="c5" class="reset" />
+      </div>
+
+      <div class="cardgame1">
+        <img src="bgcard1.jpeg" id="c6" class="reset" />
+        <img src="bgcard1.jpeg" id="c7" class="reset" />
+        <img src="bgcard1.jpeg" id="c8" class="reset" />
+        <img src="bgcard1.jpeg" id="c9" class="reset" />
+        <img src="bgcard1.jpeg" id="c10" class="reset" />
+      </div>
+      <button type="button" class="reset-button" onclick="reeset()">
+        Reset
+      </button>
+      <button type="button" class="match-button" onclick="match()">
+        Match
+      </button>
+      <button type="button" class="undo-button" onclick="undo()">Undo</button>
+    </form>
+    <script>
+      let c1 = document.querySelector("#c1");
+      let c2 = document.querySelector("#c2");
+      let c3 = document.querySelector("#c3");
+      let c4 = document.querySelector("#c4");
+      let c5 = document.querySelector("#c5");
+      let c6 = document.querySelector("#c6");
+      let c7 = document.querySelector("#c7");
+      let c8 = document.querySelector("#c8");
+      let c9 = document.querySelector("#c9");
+      let c10 = document.querySelector("#c10");
+      let lfc= document.querySelector("#lfc");
+
+      let p1 = 0;
+      let p2 = 0;
+      let p3 = 0;
+      let p4 = 0;
+      let p5 = 0;
+
+      let q1 = 0;
+      let q2 = 0;
+      let q3 = 0;
+      let q4 = 0;
+      let q5 = 0;
+
+      c1.addEventListener("click", () => {
+        c1.src = "aplayingcard.jpeg";
+        resetothercards();
+        lfc = c1;
+        p1 = 1;
+      });
+      c2.addEventListener("click", () => {
+        c2.src = "jplayingcard.jpeg";
+        resetothercards();
+        lfc = c2;
+        p2 = 1;
+      });
+      c3.addEventListener("click", () => {
+        c3.src = "kplayingcard.jpeg";
+        resetothercards();
+        lfc = c3;
+        p3 = 1;
+      });
+      c4.addEventListener("click", () => {
+        c4.src = "qplayingcard.jpeg";
+        resetothercards();
+        lfc = c4;
+        p4 = 1;
+      });
+      c5.addEventListener("click", () => {
+        c5.src = "a2playingcard.jpeg";
+        resetothercards();
+        lfc = c5;
+        p5 = 1;
+      });
+      c6.addEventListener("click", () => {
+        c6.src = "a2playingcard.jpeg";
+        resetothercards();
+        lfc = c6;
+        q5 = 1;
+      });
+      c7.addEventListener("click", () => {
+        c7.src = "kplayingcard.jpeg";
+        resetothercards();
+        lfc = c7;
+        q3 = 1;
+      });
+      c8.addEventListener("click", () => {
+        c8.src = "qplayingcard.jpeg";
+        resetothercards();
+        lfc = c8;
+        q4 = 1;
+      });
+      c9.addEventListener("click", () => {
+        c9.src = "jplayingcard.jpeg";
+        resetothercards();
+        lfc = c9;
+        q2 = 1;
+      });
+      c10.addEventListener("click", () => {
+        c10.src = "aplayingcard.jpeg";
+        resetothercards();
+        lfc = c10;
+        q1 = 1;
+      });
+
+      function resetothercards() {
+        let p1 = 0;
+        let p2 = 0;
+        let p3 = 0;
+        let p4 = 0;
+        let p5 = 0;
+        let q1 = 0;
+        let q2 = 0;
+        let q3 = 0;
+        let q4 = 0;
+        let q5 = 0;
+      }
+
+      function reeset() {
+        a = 1;
+        b = 0;
+        let x = document.querySelectorAll(".reset");
+        for (let i = 0; i < x.length; i++) {
+          x[i].disabled = false;
+          x[i].src = "bgcard1.jpeg";
+          x[i].style.display = "block";
+        }
+      }
+
+      function undo() {
+
+        alert 
+      
+        let y = document.querySelectorAll(".reset");
+        for (let i = 0; i < y.length; i++) {
+            if(lfc){
+                y[i].disabled = false;
+                y[i].src="bgcard1.jpeg";
+            }
+            
+        }
+        resetOtherCards();
+        lfc=null;
+    }
+    
+
+
+      function match() {
+        let c1 = document.querySelector("#c1");
+        let c2 = document.querySelector("#c2");
+        let c3 = document.querySelector("#c3");
+        let c4 = document.querySelector("#c4");
+        let c5 = document.querySelector("#c5");
+        let c6 = document.querySelector("#c6");
+        let c7 = document.querySelector("#c7");
+        let c8 = document.querySelector("#c8");
+        let c9 = document.querySelector("#c9");
+        let c10 = document.querySelector("#c10");
+
+        if (p1 == q1 && p1 == 1) {
+          c1.style.display = "none";
+          c10.style.display = "none";
+        }
+        if (p2 == q2 && p2 == 1) {
+          c2.style.display = "none";
+          c9.style.display = "none";
+        }
+        if (p3 == q3 && p3 == 1) {
+          c3.style.display = "none";
+          c7.style.display = "none";
+        }
+        if (p4 == q4 && p4 == 1) {
+          c4.style.display = "none";
+          c8.style.display = "none";
+        }
+        if (p5 == q5 && p5 == 1) {
+          c5.style.display = "none";
+          c6.style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>

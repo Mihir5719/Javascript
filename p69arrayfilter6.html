@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Table</title>
+    <!-- Include Skeleton CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <style>
+        /* Basic body styles */
+        body {
+            background-color: #f0f4f7;
+            color: #333;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Container styles */
+        .container {
+            max-width: 960px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+        }
+
+        /* Header styles */
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007BFF;
+            font-size: 2em;
+        }
+
+        /* Input field and button styles */
+        .field input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .field input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        .button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Table styles */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        .u-full-width {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .u-full-width thead {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .u-full-width th,
+        .u-full-width td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .u-full-width tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Error message styles */
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .button {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Employee Directory</h1>
+
+        <!-- Centered Input and Button -->
+        <div class="row field">
+            <input class="u-full-width" type="text" placeholder="Enter Employee Name" id="txt">
+            <button class="button" onclick="displayEmployeeDetails()">Submit</button>
+        </div>
+
+        <p id="span1" class="error"></p>
+
+        <div class="table-container">
+            <table id="userTable" class="u-full-width">
+                <thead>
+                    <tr>
+                        <th>Employee Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Salary</th>
+                        <th>Department</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be added here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const users = [
+            { eno: "1", firstName: "Aarav", lastName: "Sharma", salary: 10000, department: "Engineering", gender: "Male" },
+            { eno: "2", firstName: "Vihaan", lastName: "Patel", salary: 12000, department: "Marketing", gender: "Male" },
+            { eno: "3", firstName: "Vivaan", lastName: "Reddy", salary: 45000, department: "Human Resources", gender: "Male" },
+            { eno: "4", firstName: "Ananya", lastName: "Iyer", salary: 52000, department: "Finance", gender: "Female" },
+            { eno: "5", firstName: "Diya", lastName: "Khan", salary: 15000, department: "Engineering", gender: "Female" },
+            // Add more employees as necessary...
+        ];
+
+        const tableBody = document.querySelector("#userTable tbody");
+
+        function displayEmployeeDetails() {
+            let inputName = document.getElementById("txt").value;
+            tableBody.innerHTML = ""; // Clear previous data
+            let employee = users.find(user => user.firstName.toLowerCase() == inputName.toLowerCase());
+
+            if (employee) {
+                tableBody.innerHTML = `
+                    <tr>
+                        <td>${employee.eno}</td>
+                        <td>${employee.firstName}</td>
+                        <td>${employee.lastName}</td>
+                        <td>${employee.salary}</td>
+                        <td>${employee.department}</td>
+                        <td>${employee.gender}</td>
+                    </tr>
+                `;
+                document.getElementById("span1").innerText = "";
+            } else {
+                document.getElementById("span1").innerText = "No employee found.";
+            }
+        }
+
+        // Initially show all employees
+        users.forEach(user => {
+            const row = `<tr>
+                <td>${user.eno}</td>
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
+                <td>${user.salary}</td>
+                <td>${user.department}</td>
+                <td>${user.gender}</td>
+            </tr>`;
+            tableBody.innerHTML += row;
+        });
+    </script>
+</body>
+
+</html>

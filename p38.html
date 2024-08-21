@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #03ff4ba7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="button"] {
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #03ff4ba7;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #ffffff;
+        }
+
+        #spanans {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h2>Area Of Triangle</h2>
+        <input type="text" id="txtno1" placeholder="Enter value of H"/>
+        <input type="text" id="txtno2" placeholder="Enter value of B"/>
+        <br><input type="button" id="sum" value="Area Of Triangle">
+        <br><span id="spanans"></span>
+    </form>
+
+    <script>
+        let H = document.querySelector("#txtno1");
+        let B = document.querySelector("#txtno2");
+        let span = document.querySelector("#spanans");
+        let add = document.querySelector("#sum");
+
+        add.addEventListener("click", () => {
+            let h = parseFloat(txtno1.value);
+            let b = parseFloat(txtno2.value);
+            span.innerHTML = h*b*0.5;
+            
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Food Items</title>
+    <style>
+        /* Basic styles for the button */
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Styles for the list */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            font-size: 18px;
+            border-bottom: 1px solid #ccc;
+        }
+        .food-list {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Chinese Food Items</h2>
+<ul class="food-list" id="foodList">
+    <li>Sweet and Sour</li>
+    <li>Kung Pao</li>
+    <li>Spring Rolls</li>
+    <li>Dumplings</li>
+</ul>
+<button class="btn btn-primary" id="addButton" onclick="addFoodItem()">Add Food Item</button>
+
+<script>
+    // Function to add a new list item
+    function addFoodItem() {
+        // Create a new list item element
+        let newItem = document.createElement('li');
+        
+        // Set the text content of the new item
+        newItem.textContent = 'New Food Item'; // You can change this to any specific item
+        
+        // Append the new item to the list
+        document.getElementById('foodList').appendChild(newItem);
+    }
+
+   
+</script>
+
+</body>
+</html>

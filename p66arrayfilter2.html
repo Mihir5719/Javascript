@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body></body>
+
+  <script>
+    let people = [
+      { name: "Alice", age: 25 },
+      { name: "Bob", age: 30 },
+      { name: "Charlie", age: 20 },
+      { name: "Alice", age: 23 },
+      { name: "Bob", age: 36 },
+      { name: "Charlie", age: 28 },
+      { name: "Emma", age: 22 },
+      { name: "Grace", age: 38 },
+      { name: "Isaac", age: 32 },
+      { name: "Jack", age: 33 },
+      { name: "Liam", age: 25 },
+      { name: "Mia", age: 39 },
+      { name: "Noah", age: 27 },
+      { name: "Peter", age: 31 },
+      { name: "Quinn", age: 21 },
+      { name: "Ruby", age: 24 },
+      { name: "Steve", age: 26 },
+      { name: "Tina", age: 29 },
+    ];
+
+    let adults = people.filter((person) => person.age >= 28);
+
+    document.writeln(adults);
+  </script>
+</html>

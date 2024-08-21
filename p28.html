@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    
+</head>
+<style>
+    .container{
+        border: 1px solid rgb(255, 255, 255);
+        height: 200px;
+        width: 300px;
+        text-align: center;
+        background-color:rgb(0, 255, 255);
+        border-radius: 10px;
+        margin-left: 250px;
+        margin-top: 100px;
+        
+    }
+    .container1{
+        margin-top: 20px;
+    }
+
+</style>
+<body>
+    <script>
+
+        function GradeSystem()
+        {
+            let Hindi=parseInt(document.getElementById("txtno1").value);
+            let Maths=parseInt(document.getElementById("txtno2").value);
+            let English=parseInt(document.getElementById("txtno3").value);
+            total=English+Hindi+Maths
+    
+            document.getElementById("spanans").innerHTML=Hindi+Maths+English;
+
+            if (total>50){
+                document.getElementById("spangrade").innerHTML="Congratulations You Got C Grade";
+            }
+            else if(total>100){
+                document.getElementById("spangrade").innerHTML="Congratulations You Got B Grade";
+            }
+            else{
+                document.getElementById("spangrade").innerHTML="Sorry But You Are Fail";
+            }
+        }
+            
+        
+        
+
+
+    </script>
+    <form class="container ">
+        Hindi <input type="text" placeholder="Marks Of Hindi"  class="container1" id="txtno1">
+        <br>
+        Maths <input type="text" placeholder="Marks Of Maths"  class="container1" id="txtno2">
+        <br>
+        English <input type="text" placeholder="Marks Of English"  class="container1" id="txtno3">
+        <br>
+     <input type="button" value="Click To Get Total And Grade"  class="container1" id="btnsubmit" onclick="GradeSystem();">
+
+     <span id="spanans"></span>
+     <span id="spangrade"></span>
+    </form>
+    
+</body>
+</html>

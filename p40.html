@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #03ff4ba7;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            margin: 10px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="button"] {
+            margin: 20px 0;
+            padding: 10px 20px;
+            background-color: #03ff4ba7;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #ffffff;
+        }
+
+        #spanans {
+            display: block;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #000000;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <h2>Simple Interest</h2>
+        <input type="text" id="txtno1" placeholder="Enter value of P"/>
+        <input type="text" id="txtno2" placeholder="Enter value of R"/>
+        <input type="text" id="txtno3" placeholder="Enter value of N"/>
+        <br><input type="button" id="sum" value="Simple Interest">
+        <br><span id="spanans"></span>
+    </form>
+
+    <script>
+        let p = document.querySelector("#txtno1");
+        let r = document.querySelector("#txtno2");
+        let n = document.querySelector("#txtno3");
+        let span = document.querySelector("#spanans");
+        let add = document.querySelector("#sum");
+
+        add.addEventListener("click", () => {
+            let p = parseFloat(txtno1.value);
+            let r = parseFloat(txtno2.value);
+            let n = parseFloat(txtno3.value);
+            span.innerHTML = p*r*n/100;
+            
+        })
+    </script>
+</body>
+
+</html>

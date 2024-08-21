@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #f4f4f4;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 400px;
+        background: #333;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.5);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .user-input-box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .user-input-box input[type="button"] {
+        height: 40px;
+        border-radius: 7px;
+        border: none;
+        background: #444;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .user-input-box input[type="button"]:hover {
+        background: #555;
+      }
+
+      .txt {
+        height: 30px;
+        width: 100%;
+        border-radius: 7px;
+        outline: none;
+        border: 1px solid grey;
+        padding: 0 10px;
+        font-size: 18px;
+        text-align: right;
+      }
+
+      .form-title {
+        font-size: 26px;
+        font-weight: 600;
+        text-align: center;
+        padding-bottom: 20px;
+        color: white;
+        text-shadow: 2px 2px 2px black;
+        border-bottom: solid 1px white;
+        margin-bottom: 20px;
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form class="container">
+      <h1 class="form-title">Calculator</h1>
+      <input class="txt" type="text" placeholder="Number" readonly id="txtno" />
+      <br>
+      <div class="user-input-box">
+        <input type="button" value="1" id="btnno1" />
+        <input type="button" value="2" id="btnno2" />
+        <input type="button" value="3" id="btnno3" />
+        <input type="button" value="4" id="btnno4" />
+        <input type="button" value="5" id="btnno5" />
+        <input type="button" value="6" id="btnno6" />
+        <input type="button" value="7" id="btnno7" />
+        <input type="button" value="8" id="btnno8" />
+        <input type="button" value="9" id="btnno9" />
+        <input type="button" value="0" id="btnno0" />
+        <input type="button" value="+" id="btnadd" />
+        <input type="button" value="-" id="btnsub" />
+        <input type="button" value="*" id="btnmul" />
+        <input type="button" value="/" id="btndiv" />
+        <input type="button" value="=" id="btnans" />
+      </div>
+
+    </form>
+    <script>
+      let btnno1 = document.querySelector("#btnno1");
+      let btnno2 = document.querySelector("#btnno2");
+      let btnno3 = document.querySelector("#btnno3");
+      let btnno4 = document.querySelector("#btnno4");
+      let btnno5 = document.querySelector("#btnno5");
+      let btnno6 = document.querySelector("#btnno6");
+      let btnno7 = document.querySelector("#btnno7");
+      let btnno8 = document.querySelector("#btnno8");
+      let btnno9 = document.querySelector("#btnno9");
+      let btnno0 = document.querySelector("#btnno0");
+      let btnadd = document.querySelector("#btnadd");
+      let btnsub = document.querySelector("#btnsub");
+      let btnmul = document.querySelector("#btnmul");
+      let btndiv = document.querySelector("#btndiv");
+      let btnans = document.querySelector("#btnans");
+      let txtno = document.querySelector("#txtno");
+
+      btnno1.addEventListener("click", () => {
+        txtno.value += "1";
+      });
+
+      btnno2.addEventListener("click", () => {
+        txtno.value += "2";
+      });
+
+      btnno3.addEventListener("click", () => {
+        txtno.value += "3";
+      });
+
+      btnno4.addEventListener("click", () => {
+        txtno.value += "4";
+      });
+
+      btnno5.addEventListener("click", () => {
+        txtno.value += "5";
+      });
+
+      btnno6.addEventListener("click", () => {
+        txtno.value += "6";
+      });
+
+      btnno7.addEventListener("click", () => {
+        txtno.value += "7";
+      });
+
+      btnno8.addEventListener("click", () => {
+        txtno.value += "8";
+      });
+
+      btnno9.addEventListener("click", () => {
+        txtno.value += "9";
+      });
+
+      btnno0.addEventListener("click", () => {
+        txtno.value += "0";
+      });
+
+      btnadd.addEventListener("click", () => {
+        txtno.value += "+";
+      });
+
+      btnsub.addEventListener("click", () => {
+        txtno.value += "-";
+      });
+
+      btndiv.addEventListener("click", () => {
+        txtno.value += "/";
+      });
+
+      btnmul.addEventListener("click", () => {
+        txtno.value += "*";
+      });
+
+      btnans.addEventListener("click", () => {
+        txtno.value = eval(txtno.value);
+      });
+    </script>
+  </body>
+</html>

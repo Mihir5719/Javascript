@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Generate Captcha</title>
+  </head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+  <form>
+      <div class="container flex items-center justify-center">
+        <div
+          class="flex flex-col bg-white p-8 rounded-2xl w-72 shadow-lg"
+        >
+          <!-- Captcha Result -->
+          <span class="text-2xl text-gray-700 mb-4 font-semibold" id="ans"></span>
+          <!-- Input Field -->
+          <input 
+              class="px-4 h-12 mb-5 border border-gray-300 
+                     rounded-md focus:outline-none focus:border-blue-400" 
+              type="password" id="txt" placeholder="Enter Captcha" />
+
+          <!-- Button -->
+          <input 
+              class="bg-blue-600 hover:bg-blue-700 active:bg-blue-800 font-bold 
+                     text-white p-3 rounded-lg transition-colors duration-200 cursor-pointer"
+              type="button" value="Show" onclick="show()" id="btn" />
+        </div>
+      </div>
+  </form>
+
+  <script>
+    function show(){
+        let txt = document.getElementById("txt");
+
+        if(txt.type == "password"){
+            txt.type = "text";
+            btn.value = "Hide";
+        }
+        else{
+            txt.type = "password";
+            btn.value = "Show";
+        }
+    }
+  </script>
+</body>
+</html>
